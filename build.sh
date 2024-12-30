@@ -13,3 +13,9 @@ python manage.py migrate
 
 # Create cache table
 python manage.py createcachetable
+
+# Create superuser
+DJANGO_SUPERUSER_USERNAME=admin \
+DJANGO_SUPERUSER_EMAIL=admin@example.com \
+DJANGO_SUPERUSER_PASSWORD=admin123456 \
+python manage.py createsuperuser --noinput
