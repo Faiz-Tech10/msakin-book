@@ -83,14 +83,14 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'msakin.wsgi.application'
-ASGI_APPLICATION = 'msakin.routing.application'
+ASGI_APPLICATION = "msakin.asgi.application"
 
 # Channel layers
 CHANNEL_LAYERS = {
-    'default': {
-        'BACKEND': 'channels_redis.core.RedisChannelLayer',
-        'CONFIG': {
-            'hosts': [config('REDIS_URL', default='redis://localhost:6379')],
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [config('REDIS_URL', default='redis://localhost:6379')],
         },
     },
 }
@@ -251,7 +251,7 @@ CORS_ALLOWED_HEADERS = [
 ]
 
 # Security settings
-SECURE_SSL_REDIRECT = False  # Disable SSL redirect for now
+SECURE_SSL_REDIRECT = False
 SECURE_PROXY_SSL_HEADER = None
 SESSION_COOKIE_SECURE = False
 CSRF_COOKIE_SECURE = False
