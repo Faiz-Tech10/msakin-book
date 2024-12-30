@@ -8,14 +8,11 @@ pip install -r requirements.txt
 # Collect static files
 python manage.py collectstatic --no-input
 
-# Apply database migrations
-python manage.py migrate
+# Apply database migrations (without resetting)
+python manage.py migrate --noinput
 
-# Create cache table
+# Create cache table (if not exists)
 python manage.py createcachetable
 
-# Create superuser
-DJANGO_SUPERUSER_USERNAME=admin \
-DJANGO_SUPERUSER_EMAIL=admin@example.com \
-DJANGO_SUPERUSER_PASSWORD=admin123456 \
-python manage.py createsuperuser --noinput
+# Create superuser only if it doesn't exist
+echo "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.filter(username='admin').exists() or User.objects.create_superuser('admin', 'admin@example.com', 'admin123456')" | python manage.py shell

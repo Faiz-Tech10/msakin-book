@@ -30,3 +30,5 @@ databases:
   - name: msakin_db
     databaseName: msakin
     plan: free
+    ipAllowList: []  # optional (defaults to [])
+    postgresMajorVersion: 15
