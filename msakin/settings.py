@@ -236,13 +236,11 @@ CORS_ALLOWED_HEADERS = [
     'x-requested-with',
 ]
 
-# Security Settings
-if not DEBUG:
-    SECURE_SSL_REDIRECT = True
-    SESSION_COOKIE_SECURE = True
-    CSRF_COOKIE_SECURE = True
-    SECURE_BROWSER_XSS_FILTER = True
-    SECURE_CONTENT_TYPE_NOSNIFF = True
-    SECURE_HSTS_SECONDS = 31536000  # 1 year
-    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-    SECURE_HSTS_PRELOAD = True
+# Security settings
+SECURE_SSL_REDIRECT = False  # Disable SSL redirect for now
+SECURE_PROXY_SSL_HEADER = None
+SESSION_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = False
+
+# CSRF settings
+CSRF_TRUSTED_ORIGINS = ['https://*.onrender.com']
