@@ -1,13 +1,9 @@
 import os
+import django
 from channels.routing import get_default_application
-# from channels.auth import AuthMiddlewareStack
-# from channels.security.websocket import AllowedHostsOriginValidator
-# from chat.consumers import ChatConsumer
-# from django.urls import re_path
+from django.core.asgi import get_asgi_application
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'msakin.settings')
-
+django.setup()
 
 application = get_default_application()
-
-
